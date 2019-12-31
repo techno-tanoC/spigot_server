@@ -7,7 +7,7 @@ services:
         spigot_version: 1.15.1
     command: /app/start.sh
     environment:
-      EULA: "true"
+      EULA: "false"
     volumes:
       - ./data:/data
     ports:
