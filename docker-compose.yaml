@@ -7,11 +7,21 @@ services:
         spigot_version: 1.15.1
     command: /app/start.sh
     environment:
-      EULA: "false"
+      EULA: "true"
     volumes:
       - ./data:/data
     ports:
       - "25565:25565"
+    tty: true
+    stdin_open: true
+
+  notify:
+    build:
+      context: .
+      dockerfile: ruby:2.7.0-alpine3.11
+    command: ["tail", "-f", "/dev/null"]
+    volumes:
+      - ./data:/data
     tty: true
     stdin_open: true
 
